@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const docs = [];
-for (let i = 0; i < 9999; i++) {
+for (let i = 0; i < 50; i++) {
     if (i < 50 || (i >= 500 && i < 999)) {
         docs.push({
             id: i + 1,
