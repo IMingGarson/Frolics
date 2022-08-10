@@ -12,9 +12,9 @@ export function createDTM(docs: Documents): returnedOriganizedObject {
     /**
      * We first check if the cache exists, if yes, we return the cached data.
      */
-    // if (existsSync(CACHE_PATH + todayDate)) {
-    //     return readFileFromCache(todayDate);
-    // }
+    if (existsSync(CACHE_PATH + todayDate)) {
+        return readFileFromCache(todayDate);
+    }
     const docMeta: DocumentMetaData = [];
     // We need these for BM25 calculation
     let totalDocument = 0;
@@ -46,7 +46,7 @@ export function createDTM(docs: Documents): returnedOriganizedObject {
         docMeta.push(termFreq);
     });
     const DTM = InvertedIndexing(docMeta, totalDocument, totalDocumentLength);
-    // syncWriteFile(todayDate, JSON.stringify(DTM));
+    syncWriteFile(todayDate, JSON.stringify(DTM));
     return DTM;
 }
 
