@@ -12,9 +12,9 @@ function createDTM(docs) {
     /**
      * We first check if the cache exists, if yes, we return the cached data.
      */
-    if ((0, fs_1.existsSync)(CACHE_PATH + todayDate)) {
-        return readFileFromCache(todayDate);
-    }
+    // if (existsSync(CACHE_PATH + todayDate)) {
+    //     return readFileFromCache(todayDate);
+    // }
     const docMeta = [];
     // We need these for BM25 calculation
     let totalDocument = 0;
@@ -46,7 +46,7 @@ function createDTM(docs) {
         docMeta.push(termFreq);
     });
     const DTM = (0, InvertedIndexing_1.InvertedIndexing)(docMeta, totalDocument, totalDocumentLength);
-    syncWriteFile(todayDate, JSON.stringify(DTM));
+    // syncWriteFile(todayDate, JSON.stringify(DTM));
     return DTM;
 }
 exports.createDTM = createDTM;
