@@ -1,1 +1,3 @@
-export * as createDTM from "./createDTM";
+import { createDTM } from "./createDTM";
+
+export default createDTM;
