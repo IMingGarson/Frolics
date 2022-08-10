@@ -1,18 +1,25 @@
 {
-  "name": "skiplist",
+  "name": "frolics",
   "version": "1.0.0",
-  "description": "",
+  "description": "An offline, lightweight Full-text search library for Frontend application.",
   "main": "index.js",
   "types": "dist/index.d.ts",
-  "files": ["/dist"],
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "test": "ts-node ./src/test/index.ts",
     "start": "ts-node ./src/index.ts",
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["Elastic", "full-text", "search", "frontend"],
-  "author": "IMing",
+  "keywords": [
+    "Elastic",
+    "full-text",
+    "search",
+    "frontend"
+  ],
+  "author": "iming",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.1",
