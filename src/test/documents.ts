@@ -2,7 +2,7 @@ import { Documents } from "../domain/types";
 
 const docs: Documents = [];
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 9999; i++) {
     if (i < 50 || (i >= 500 && i < 999)) {
         docs.push({
             id: i + 1,
@@ -38,7 +38,7 @@ for (let i = 0; i < 50; i++) {
     } else {
         docs.push({
             id: i + 1,
-            body: 'Unstructured text is not really unstructured, it’s just structured using a language model. Spaces, periods, commas and hyphens all structure text so a human can process and understand. Computers don’t work like us and need help processing a stream of text.'
+            body: 'Computers don’t work like us and need help processing a stream of text. Develop developer development'
         });
     }
 }

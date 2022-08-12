@@ -11,29 +11,31 @@ export function QueryTest(query: string): searchedResults {
     const DTM = createDTM(docs);
     const finalResults: searchedResults = {};
     Tokenizer(query).forEach(token => {
-        token = Stemmer(token);
-        if (typeof DTM[token] === 'undefined') {
+        let stemmed = Stemmer(token);
+        if (typeof DTM[stemmed] === 'undefined') {
             return true;
         }
-        Object.entries(DTM[token]).forEach((k) => {
+        // keep track of stemmed words
+        Object.entries(DTM[stemmed]).forEach((k) => {
             let docId: string = k[0], score: number = k[1];
             docs.forEach((document: DocumentNode) => {
                 if (+document.id == +docId) {
                     let content: searchedContent = { content: document.body, score: score };
-                    if (!(token in finalResults)) {
-                        finalResults[token] = [content];
+                    if (!(stemmed in finalResults)) {
+                        finalResults[stemmed] = [content];
                     } else {
-                        finalResults[token].push(content);
+                        finalResults[stemmed].push(content);
                     }
                 }
-            })
-        })
+            });
+        });
     });
     // Sort the result by score in desending order
     Object.values(finalResults).forEach(data => {
         data.sort((a: searchedContent, b: searchedContent) => a.score > b.score ? -1 : a.score < b.score ? 1 : 0);
         return data;
     });
+
     return finalResults;
 }
 

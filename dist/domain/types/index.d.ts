@@ -8,10 +8,14 @@ export declare type Documents = DocumentNode[];
 export declare type TextFreqNode = {
     [key: string]: number;
 };
+export declare type OriginalTextNode = {
+    [key: string]: string;
+};
 export declare type DocumentMetaNode = {
     docId: number;
     docLength: number;
     terms: TextFreqNode;
+    originalWordsSet?: OriginalTextNode;
 };
 export declare type DocumentMetaData = DocumentMetaNode[];
 export declare type DTMNode = {

@@ -15,20 +15,21 @@ function QueryTest(query) {
     const DTM = (0, createDTM_1.createDTM)(documents_1.default);
     const finalResults = {};
     (0, Tokenizer_1.Tokenizer)(query).forEach(token => {
-        token = (0, Stemmer_1.Stemmer)(token);
-        if (typeof DTM[token] === 'undefined') {
+        let stemmed = (0, Stemmer_1.Stemmer)(token);
+        if (typeof DTM[stemmed] === 'undefined') {
             return true;
         }
-        Object.entries(DTM[token]).forEach((k) => {
+        // keep track of stemmed words
+        Object.entries(DTM[stemmed]).forEach((k) => {
             let docId = k[0], score = k[1];
             documents_1.default.forEach((document) => {
                 if (+document.id == +docId) {
                     let content = { content: document.body, score: score };
-                    if (!(token in finalResults)) {
-                        finalResults[token] = [content];
+                    if (!(stemmed in finalResults)) {
+                        finalResults[stemmed] = [content];
                     }
                     else {
-                        finalResults[token].push(content);
+                        finalResults[stemmed].push(content);
                     }
                 }
             });

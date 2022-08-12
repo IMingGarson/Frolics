@@ -11,10 +11,15 @@ export type TextFreqNode = {
     [key: string]: number
 }
 
+export type OriginalTextNode = {
+    [key: string]: string
+}
+
 export type DocumentMetaNode = {
     docId: number,
     docLength: number,
-    terms: TextFreqNode
+    terms: TextFreqNode,
+    originalWordsSet?: OriginalTextNode
 }
 
 export type DocumentMetaData = DocumentMetaNode[];
