@@ -1,12 +1,16 @@
 {
   "name": "frolics",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "An offline, lightweight Full-text search library for Frontend application.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "/dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IMingGarson/Frolics.git"
+  },
   "scripts": {
     "test": "ts-node ./src/test/index.ts",
     "start": "ts-node ./src/index.ts",
@@ -14,10 +18,15 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "Elastic",
-    "full-text",
-    "search",
-    "frontend"
+    "Elasticsearch",
+    "text search",
+    "frontend",
+    "Lucence",
+    "typescript",
+    "javascript",
+    "reactjs",
+    "vue3",
+    "NLP"
   ],
   "author": "iming",
   "license": "MIT",
