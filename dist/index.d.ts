@@ -1,2 +1,3 @@
 import { createDTM } from "./createDTM";
-export default createDTM;
+import { Tokenizer } from "./domain/entities/Tokenizer";
+export { createDTM, Tokenizer };

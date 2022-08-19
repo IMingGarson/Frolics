@@ -6,15 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.QueryTest = void 0;
 const documents_1 = __importDefault(require("./documents"));
 const Stemmer_1 = require("../domain/entities/Stemmer");
-const Tokenizer_1 = require("../domain/entities/Tokenizer");
-const createDTM_1 = require("../createDTM");
+const src_1 = require("../../src");
+const src_2 = require("../../src");
 function QueryTest(query) {
     if (!query.length) {
         return {};
     }
-    const DTM = (0, createDTM_1.createDTM)(documents_1.default);
+    const DTM = (0, src_2.createDTM)(documents_1.default);
     const finalResults = {};
-    (0, Tokenizer_1.Tokenizer)(query).forEach(token => {
+    (0, src_1.Tokenizer)(query).forEach(token => {
         let stemmed = (0, Stemmer_1.Stemmer)(token);
         if (typeof DTM[stemmed] === 'undefined') {
             return true;

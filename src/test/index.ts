@@ -1,7 +1,7 @@
 import docs from './documents';
 import { Stemmer } from '../domain/entities/Stemmer';
-import { Tokenizer } from '../domain/entities/Tokenizer';
-import { createDTM } from '../createDTM';
+import { Tokenizer } from '../../src';
+import { createDTM } from '../../src';
 import { searchedResults, searchedContent, DocumentNode } from '../domain/types';
 
 export function QueryTest(query: string): searchedResults {

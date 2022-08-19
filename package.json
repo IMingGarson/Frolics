@@ -1,6 +1,6 @@
 {
   "name": "frolics",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "An offline, lightweight Full-text search library for Frontend application.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
