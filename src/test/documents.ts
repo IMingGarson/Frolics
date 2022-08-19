@@ -38,7 +38,7 @@ for (let i = 0; i < 50; i++) {
     } else {
         docs.push({
             id: i + 1,
-            body: 'Computers don’t work like us and need help processing a stream of text. Develop developer development'
+            body: 'tester testing tested'
         });
     }
 }

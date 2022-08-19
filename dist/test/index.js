@@ -5,17 +5,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QueryTest = void 0;
 const documents_1 = __importDefault(require("./documents"));
-const Stemmer_1 = require("../domain/entities/Stemmer");
 const src_1 = require("../../src");
 const src_2 = require("../../src");
+const src_3 = require("../../src");
 function QueryTest(query) {
     if (!query.length) {
         return {};
     }
-    const DTM = (0, src_2.createDTM)(documents_1.default);
+    const DTM = (0, src_3.createDTM)(documents_1.default);
     const finalResults = {};
-    (0, src_1.Tokenizer)(query).forEach(token => {
-        let stemmed = (0, Stemmer_1.Stemmer)(token);
+    (0, src_2.Tokenizer)(query).forEach(token => {
+        let stemmed = (0, src_1.Stemmer)(token);
         if (typeof DTM[stemmed] === 'undefined') {
             return true;
         }
@@ -44,7 +44,7 @@ function QueryTest(query) {
 }
 exports.QueryTest = QueryTest;
 let start = new Date().getTime();
-const testQuery1 = 'developer';
+const testQuery1 = 'test';
 QueryTest(testQuery1);
 console.log('testQuery1: ', testQuery1);
 console.log('total time with cache 1: ', (new Date().getTime() - start) / 1000, ' sec.');

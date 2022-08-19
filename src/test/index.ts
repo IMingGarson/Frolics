@@ -1,5 +1,5 @@
 import docs from './documents';
-import { Stemmer } from '../domain/entities/Stemmer';
+import { Stemmer } from '../../src';
 import { Tokenizer } from '../../src';
 import { createDTM } from '../../src';
 import { searchedResults, searchedContent, DocumentNode } from '../domain/types';
@@ -35,13 +35,12 @@ export function QueryTest(query: string): searchedResults {
         data.sort((a: searchedContent, b: searchedContent) => a.score > b.score ? -1 : a.score < b.score ? 1 : 0);
         return data;
     });
-
     return finalResults;
 }
 
 let start = new Date().getTime();
 
-const testQuery1 = 'developer';
+const testQuery1 = 'test';
 QueryTest(testQuery1)
 console.log('testQuery1: ', testQuery1);
 console.log('total time with cache 1: ', (new Date().getTime() - start) / 1000, ' sec.');
