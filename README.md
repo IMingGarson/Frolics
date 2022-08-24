@@ -82,7 +82,7 @@ After defining `docs`, we are all set. Next step is to use Frolics.
 Frolics supports ES6 syntax, therefore you can import like this:
 
 ```
-import createDTM from 'frolics';
+import { createDTM, Stemmer } from 'frolics';
 import { docs } from "../assets/document.js" // Don't forget the raw data
 ```
 
@@ -93,6 +93,14 @@ const DTM = createDTM(docs);
 ```
 
 The `createDTM` is the main function that takes `docs` and creates an inverted index dictionary.
+
+You can trim your original input with `Stemmer` to obtain searched results
+
+```
+const DTM = createDTM(docs);
+const stemmedInput = Stemmer(input);
+return DTM[stemmedInput]; // The result
+```
 
 For the detailed example, please visit the example folder.
 
